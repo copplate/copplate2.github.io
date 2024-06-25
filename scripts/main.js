@@ -98,7 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
        * 2. 添加并显示蛋糕 🍰
        */
       case 3: {
-        cakeWrapper.style.backgroundColor = '#e05b7b';
+        cakeWrapper.style.backgroundColor = '#69f4c6';
+        // cakeWrapper.style.backgroundColor = '#e05b7b';
         giftBox.style.display = 'none';
         cake.src = 'assets/images/cake.svg';
         cake.addEventListener('load', () => {
@@ -123,7 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
       case 5: {
         cakeOperate.style.display = 'none';
         cakeWrapper.classList.add('blow');
-        // music.pause().then(() => { playing = false; });
+        music.pause();
+        //.then(() => { playing = false; });
 
 
         break;
@@ -134,11 +136,16 @@ document.addEventListener('DOMContentLoaded', () => {
        */
       case 6: {
         setTimeout(() => {
+          // 获取元素
+          const myElement = document.getElementById('container');
+          myElement.style.backgroundColor = '#FFB6C1';
           cakeWrapper.classList.remove('blow');
           arrows.forEach(el => {
             el.style.display = 'block';
           });
           confetti();
+          music2.play();
+
         }, 1000);
         flip();
         break;
@@ -188,8 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // music = new Audio('assets/music/happy-birthday.mp3');
-  music = new Audio('assets/music/summer1.mp3');
+  music = new Audio('assets/music/happy-birthday.mp3');
+  music2 = new Audio('assets/music/summer1.mp3');
   music.loop = true;
 }, { once: true });
 
